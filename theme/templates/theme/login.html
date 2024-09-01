@@ -1,0 +1,87 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lendys Caffé</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<body class="bg-orange-100 font-serif leading-normal tracking-normal">
+    <!-- Image section -->
+    <div class="max-h-52 flex items-center justify-center bg-orange-100">
+        <a href="{% url 'len:index' %}">
+        <img src="../../static/images/lendys.png" alt="Description de l'image" class="max-h-44 object-contain" />
+        </a>
+    </div>
+
+    <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
+        <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+            <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-700">Se connecter à votre compte</h2>
+        </div>
+
+        <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+            <form class="space-y-6" method="POST">
+                {% csrf_token %}
+                <div>
+                    <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Adresse Email</label>
+                    <div class="mt-2">
+                        {{ form.username }}
+                        {% if form.username.errors %}
+                            <div class="text-red-500 text-sm mt-1">
+                                {{ form.username.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Mot de passe</label>
+                        <div class="text-sm">
+                            <a href="#" class="  font-semibold text-gray-700 hover:text-yellow-600">Mot de passe oublié?</a>
+                        </div>
+                    </div>
+                    <div class="mt-2">
+                        {{ form.password }}
+                        {% if form.password.errors %}
+                            <div class="text-red-500 text-sm mt-1">
+                                {{ form.password.errors }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            
+                <div>
+                    <button type="submit" class="flex w-full justify-center rounded-md bg-gray-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Se connecter</button>
+                </div>
+            </form>
+
+            {% if form.errors %}
+                <div class="mt-3 bg-red-50 border-l-4 border-red-400 p-4">
+                    <div class="text-red-700">
+                        <ul>
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    <li>{{ field.label }}: {{ field.errors }}</li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if form.non_field_errors %}
+                                <li>{{ form.non_field_errors }}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            {% endif %}
+
+            <p class="mt-10 text-center text-sm text-gray-500">
+                Vous n'avez pas de compte?
+                <a href="{% url 'len:register' %}" class="font-semibold leading-6 text-gray-700 hover:text-orange-600">S'inscrire ici</a>
+            </p>
+        </div>
+        
+    </div>
+</body>
