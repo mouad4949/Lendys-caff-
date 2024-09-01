@@ -1,0 +1,591 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lendys Caffé</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<style>
+	.swiper-wrapper {
+		width: 100%;
+		height: max-content !important;
+		padding-bottom: 64px !important;
+		-webkit-transition-timing-function: linear !important;
+		transition-timing-function: linear !important;
+		position: relative;
+		}
+		.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+		background: #4F46E5 !important;
+		}
+		.swiper-button-prev:after,
+        .swiper-rtl .swiper-button-next:after {
+            content: '' !important;
+        }
+
+        .swiper-button-next:after,
+        .swiper-rtl .swiper-button-prev:after {
+            content: '' !important;
+        }
+
+        .swiper-button-next svg,
+        .swiper-button-prev svg {
+            width: 24px !important;
+            height: 24px !important;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            position: relative !important;
+        }
+
+        .swiper-slide.swiper-slide-active {
+            --tw-border-opacity: 1 !important;
+            border-color: rgb(79 70 229 / var(--tw-border-opacity)) !important;
+        }
+
+        .swiper-slide.swiper-slide-active>.swiper-slide-active\:text-indigo-600 {
+            --tw-text-opacity: 1;
+            color: rgb(79 70 229 / var(--tw-text-opacity));
+        }
+
+        .swiper-slide.swiper-slide-active>.flex .grid .swiper-slide-active\:text-indigo-600 {
+            --tw-text-opacity: 1;
+            color: rgb(79 70 229 / var(--tw-text-opacity));
+        }
+		html {
+			scroll-behavior: smooth;
+		  }
+</style>
+
+
+
+<body class="bg-orange-100 font-serif leading-normal tracking-normal">
+    <!-- Navbar -->
+    <nav class="bg-orange-900">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <!-- Navigation centrale avec barre de recherche -->
+                <div class="flex flex-1 items-center justify-center sm:justify-between">
+                    <!-- Social media icons (left side) -->
+                    <div class="hidden sm:flex space-x-4">
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-facebook-f fa-1x"></i>
+                        </a>
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-twitter fa-1x"></i>
+                        </a>
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-instagram fa-1x"></i>
+                        </a>
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-linkedin-in fa-1x"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Search bar -->
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image section -->
+    <div class="max-h-52 flex items-center justify-center bg-orange-100">
+        <img src="../../static/images/lendys.png" alt="Description de l'image" class="max-h-44 object-contain" />
+    </div>
+	
+	<nav id="menus"class="border-solid border-gray-200 w-full border-b py-3 bg-orange-100 bg-inherit">
+		<div class="container mx-auto">
+			<div class="w-full flex flex-col lg:flex-row w-full">
+				<div class="flex justify-between lg:flex-row w-full">
+					<ul class="flex items-center mx-auto gap-2 ">
+						<li>
+							<div class="dropdown relative inline-flex">
+								<button type="button" data-target="dropdown-eshop" class="dropdown-toggle flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium hover:text-gray-400 transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">
+									E-shop
+									<svg class="dropdown-open:rotate-180 w-2.5 h-2.5 text-orange-800" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+									</svg>
+								</button>
+								<div id="dropdown-eshop" class="dropdown-menu rounded-xl shadow-lg bg-white absolute top-full w-72 mt-2 hidden z-50" aria-labelledby="dropdown-eshop">
+									<ul class="py-2">
+										<li><a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:conf' %}">Confiserie</a></li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:gat' %}"> Gateaux </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:gat_trad' %}"> Gateaux Traditionnels </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:glace' %}"> Desserts glacés </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:snack' %}"> Snack </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:venoiserie' %}"> Venoiserie </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:Salés' %}"> Salés </a>
+                                    </li>
+                                    
+                                    </li>
+                                    
+                                    </ul>
+                                    </div>
+                                    </div> 
+                            </li>
+                            <li>
+								
+                            <a href="{% url 'len:Broc' %}" class=" flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium   transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">Nos Brochures</a>
+                            </li>
+                            <li>
+                            <a href="javascript:;" class="flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium   transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">La Maison</a>
+                            </li>
+							{% if user.is_authenticated %}
+							<li>
+								<div class="dropdown relative inline-flex">
+									<button type="button" data-target="dropdown-profile" class="dropdown-toggle flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium hover:text-gray-400 transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">
+										<i class="fa-solid fa-user-tie"></i>{{user.Nom}}  {{user.prenom}}
+										<svg class="dropdown-open:rotate-180 w-2.5 h-2.5 text-orange-800" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+										</svg>
+									</button>
+									<div id="dropdown-profile" class="dropdown-menu rounded-xl shadow-lg bg-white absolute top-full w-72 mt-2 hidden z-50" aria-labelledby="dropdown-profile">
+										<ul class="py-2">
+											<li><a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="javascript:;">Profile</a></li>
+											<li><a href="{% url 'len:logout'%}" class="block px-6 py-2 hover:bg-gray-100 text-red-500 font-medium" href="javascript:;">Log Out</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							{% else %}
+							<li>
+								<a href="{% url 'len:login' %}" class="px-12 flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium   transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">Se connecter</a>
+								</li>
+							{% endif %}
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+                </nav>
+	
+	 <!-- Slider Component -->
+<!--HTML CODE-->
+<div class="w-full relative">
+	<div class="swiper progress-slide-carousel swiper-container relative ">
+	<div class="swiper-wrapper ">
+	<div class="swiper-slide bg-cover " style="background-image: url('https://ediblenashville.ediblecommunities.com/sites/default/files/images/recipe/chocolate%20ice%20cream.jpg')">
+	  <div class=" rounded-2xl h-96 flex justify-center items-center">
+		<div class="bg-slate-200 p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg max-w-sm mx-auto">
+			<h2 class="text-xl font-bold mb-4 text-center">Vous souhaitez une sensation de fraîcheur? </h2>
+			<p class="text-gray-700 text-center">Explorez nos créations glacées entièrement artisanales confectionnées par nos artisans. Elles seront idéales pour apaiser vos journées estivales.</p>
+			<div class="flex justify-center items-center py-4">
+				<a href="{% url 'len:glace' %}">
+				<button class="bg-orange-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
+					Je fonds
+				</button>
+			</a>
+			</div>
+		</div>
+	  </div>
+	</div>
+	<div class="swiper-slide bg-cover " style="background-image: url('https://i3.wp.com/media.baamboozle.com/uploads/images/46020/1607418678_316364?ssl=1')">
+		<div class=" rounded-2xl h-96 flex justify-center items-center">
+		  <div class="bg-slate-200 p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg max-w-sm mx-auto">
+			  <h2 class="text-xl font-bold mb-4 text-center">Une sélection sucrée  </h2>
+			  <p class="text-gray-700 text-center">Faites l'expérience de la douceur de nos créations de saison et profitez d'une expérience culinaire à 100%.</p>
+			  <div class="flex justify-center items-center py-4">
+				<a href="{% url 'len:gat' %}">
+				  <button class="bg-orange-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
+					Je craque
+				  </button>
+				</a>
+				</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="swiper-slide bg-cover " style="background-image: url('https://getwallpapers.com/wallpaper/full/5/9/b/1478044-seafood-wallpaper-2000x1250-for-tablet.jpg')">
+		<div class=" rounded-2xl h-96 flex justify-center items-center">
+		  <div class="bg-slate-200 p-4 sm:p-6 lg:p-8 rounded-lg shadow-lg max-w-sm mx-auto">
+			  <h2 class="text-xl font-bold mb-4 text-center">Nos plats préparés  </h2>
+			  <p class="text-gray-700 text-center">Chaque semaine, la Maison Lendy's vous offre une variété de plats savoureux préparés à partir de produits frais et de saison. 
+				Essayez nos délicieux plats de la semaine!  </p>
+			  <div class="flex justify-center items-center py-4">
+				<a href="{% url 'len:snack' %}">
+				  <button class="bg-orange-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
+					Je commande
+				  </button>
+				</a>
+				</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<div class="swiper-pagination !bottom-2 !top-auto !w-80 right-0 mx-auto bg-orange-100"></div>
+	</div>
+	</div>
+
+	<div class="bg-white ">
+		<div class=" max-w-full px-6 lg:px-8 bg-orange-100">
+		  <div class="  max-w-full   sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
+			<div class="p-8 sm:p-10 lg:flex-auto">
+			  <h3 class="text-2xl font-bold tracking-tight text-gray-900">Nos suggestions de cadeaux</h3>
+			  <p class="mt-6 text-base leading-7 text-gray-600">Essayez nos délicieux produits tels que nos meringues, nos bonbons chocolat, nos coffrets gourmands et nos tablettes de chocolat Bean to Bar pour vous faire plaisir. Explorez les différentes variétés de confiserie caractéristiques de la Maison Oberweis. 
+
+				Pour les passionnés de douceurs ou pour se faire plaisir.</p>
+			  <div class="mt-10 flex items-center gap-x-4">
+				<div class="flex justify-center items-center py-4">
+					<a href="{% url 'len:conf' %}">
+					<button class="bg-orange-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
+					  Je commande
+					</button>
+				</a>
+				</div>
+			  </div>
+			  
+			</div>
+			<div class="-mt-2 p-2 lg:mt-0 lg:w-full lg:max-w-md lg:flex-shrink-0">
+			  <div class="rounded-2xl bg-white-50  ring-1 ring-inset ring-gray-900/5 ">
+				<div class="mx-auto max-w-full max-h-full">
+					<img src="https://png.pngtree.com/thumb_back/fw800/background/20230611/pngtree-big-box-of-chocolates-on-a-table-image_2943114.jpg" alt="blogs tailwind section" class="rounded-2xl w-full">
+				  
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  <div class="bg-white ">
+		<div class="max-w-full px-6 lg:px-8 bg-gray-200">
+		  <div class="max-w-full   sm:mt-10 lg:mx-0 lg:flex lg:max-w-none">
+			<!-- Price Card on the Left -->
+			<div class="lg:w-1/3 lg:shrink-0 lg:flex-shrink-0">
+			  <div class="rounded-2xl bg-white-50  ring-1 ring-inset ring-gray-900/5   ">
+				<div class="mx-auto max-w-full max-h-full ">
+				  
+					<img src="http://marieclementine.fr/wp-content/uploads/2015/11/wedding_cake.jpg" alt="blogs tailwind section" class="rounded-2xl w-full">
+				  
+				</div>
+			  </div>
+			</div>
+	  
+			<!-- Description on the Right -->
+			<div class="mt-10 lg:mt-0 lg:w-2/3">
+			  <div class="p-8 sm:p-10 lg:flex-auto">
+				<h3 class="text-2xl font-bold tracking-tight text-gray-900">Donnez vie à vos événements mémorables.</h3>
+				<p class="mt-6 text-base leading-7 text-gray-600">La Maison Lendy's est là pour rendre vos événements plus spectaculaires et les rendre inoubliables pour vos convives.
+
+					Nous sommes là pour vous accompagner dans vos moments les plus précieux, que ce soit pour une grande réception, un événement familial ou professionnel, un mariage ou une communion, des cadeaux d'entreprise ou un anniversaire. </p>
+					<div class="mt-10 flex items-center gap-x-4">
+						<div class="flex justify-center items-center py-4">
+							<a href="{% url 'len:Broc' %}">
+							<button class="bg-orange-800 text-white font-semibold py-2 px-6 rounded-full hover:bg-orange-700 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-opacity-50">
+							  Consulter nos brochures
+							</button>
+						</a>
+						</div>
+					  </div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	  
+	  <section class="py-24 ">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-center flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between gap-8">
+            
+
+                
+                <div class="w-full flex justify-between flex-col lg:w-2/5">
+                    <div class="block lg:text-left text-center">
+                    <h2 class="text-4xl font-bold text-gray-900 leading-[3.25rem] mb-5">Nos derniers  <span class=" text-orange-900">Actualités</span></h2>
+                    <p class="text-gray-500 mb-10  max-lg:max-w-xl max-lg:mx-auto">Bienvenue dans l'univers de Lendys, où chaque article est une invitation à découvrir nos créations artisanales et notre passion pour le bon goût. Plongez dans nos actualités pour explorer les dernières tendances, des conseils gourmands, et les nouveautés qui animent notre café & boulangerie.</p>
+                  </div>
+                     <!-- Slider controls -->
+                     <div class="flex items-center lg:justify-start justify-center lg:mt-0 mt-8 gap-8 mb-4">
+                      <button id="slider-button-left" class="swiper-button-prev group flex justify-center items-center border border-solid border-orange-100 w-11 h-11 transition-all duration-500 rounded-full hover:bg-orange-600" data-carousel-prev>
+                          <svg class="h-6 w-6 text-orange-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M20.9999 12L4.99992 12M9.99992 6L4.70703 11.2929C4.3737 11.6262 4.20703 11.7929 4.20703 12C4.20703 12.2071 4.3737 12.3738 4.70703 12.7071L9.99992 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              
+                      </button>
+                      <button id="slider-button-right" class="swiper-button-prev group flex justify-center items-center border border-solid border-orange-100 w-11 h-11 transition-all duration-500 rounded-full hover:bg-orange-600" data-carousel-next>
+                          <svg class="h-6 w-6 text-orange-600 group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M3 12L19 12M14 18L19.2929 12.7071C19.6262 12.3738 19.7929 12.2071 19.7929 12C19.7929 11.7929 19.6262 11.6262 19.2929 11.2929L14 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                              
+                      </button>
+                  </div>
+                </div>
+
+
+
+
+                <div class="w-full lg:w-3/5" id="actualités">
+                    <!--Slider wrapper-->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide w-full max-lg:max-w-xl lg:w-1/2 group">
+                                <div class="flex items-center mb-9">
+                                    <img src="https://www.islam.gr/wp-content/uploads/2020/04/iStock-968897858.jpg"  class="rounded-2xl w-full">
+                                </div>
+                                <h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-orange-600">Délices de Ramadan : Nos Pâtisseries Traditionnelles</h3>
+                                <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
+                                    Découvrez notre sélection exclusive de pâtisseries artisanales pour célébrer le Ramadan. Chez Lendys, nous allions tradition et gourmandise pour vous offrir des douceurs authentiques, préparées avec soin et passion. Plongez dans les saveurs envoûtantes de nos créations, parfaites pour accompagner vos moments de partage pendant ce mois sacré.
+                                </p>
+                                
+                            </div>
+                            <div class="swiper-slide w-full max-lg:max-w-xl lg:w-1/2 group">
+                                <div class="flex items-center mb-9">
+                                    <img src="https://bec-fin.ca/wp-content/uploads/2020/11/DSC6582.jpg" alt="blogs tailwind section" class="rounded-2xl w-full">
+                                </div>
+                                <h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-orange-600">Nouvelle Collection de Viennoiseries Gourmandes</h3>
+                                <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
+                                    Lendys vous présente sa nouvelle collection de viennoiseries, une véritable invitation à la gourmandise. Nos croissants dorés, nos pains au chocolat fondants et nos brioches moelleuses sont confectionnés chaque jour avec les meilleurs ingrédients pour vous offrir une expérience gustative inoubliable. Commencez votre journée du bon pied avec nos créations fraîches, parfaites pour un petit-déjeuner ou une pause-café.
+                                </p>
+                                
+                            </div>
+                            <div class="swiper-slide w-full max-lg:max-w-xl lg:w-1/2 group">
+                                <div class="flex items-center mb-9">
+                                    <img src="https://avatars.mds.yandex.net/i?id=0de79f4f88a3d435fcd21cecde3f1397_l-5333794-images-thumbs&ref=rim&n=13&w=1080&h=718" alt="blogs tailwind section" class="rounded-2xl w-full">
+                                </div>
+                                <h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-orange-600">Brunch Dominical : Un Rendez-vous Incontournable</h3>
+                                <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
+                                    Chaque dimanche, Lendys vous invite à découvrir son brunch exceptionnel, où saveurs et convivialité sont à l'honneur. Profitez d'une sélection variée de plats sucrés et salés, préparés avec des ingrédients frais et de saison. Que vous soyez amateur de classiques ou à la recherche de nouvelles découvertes culinaires, notre brunch dominical saura satisfaire toutes vos envies. Rejoignez-nous pour un moment de détente et de plaisir en famille ou entre amis.
+                                </p>
+                                
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	<footer class="w-full bg-orange-100">
+		<div class="mx-auto max-w-7xl px-4">
+			<!-- Grid -->
+			<div class="grid grid-cols-1 gap-8 py-10 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4">
+				<!-- Logo Section -->
+				<div class="flex flex-col items-center lg:items-start col-span-1 lg:col-span-1">
+					<div class="flex items-center justify-center bg-orange-100 mb-4 w-full">
+						<img src="../../static/images/lendys.png" alt="Description de l'image" class="max-h-44 object-contain" />
+					</div>
+					<div class="flex items-center justify-center w-full">
+						<a href="mailto:Lendys@lendys.com" class="py-2.5 px-5 h-9 bg-orange-100 rounded-full shadow-sm text-xs text-orange-600 transition-all duration-500 hover:bg-orange-700 hover:text-white w-full text-center">
+							Contact us
+						</a>
+					</div>
+					
+				</div>
+	
+				<!-- Useful Links -->
+				<div class="text-center lg:text-left col-span-1 lg:col-span-1">
+					<h4 class="text-lg text-gray-900 font-medium mb-7">Liens utiles</h4>
+					<ul class="text-sm space-y-6">
+						<li><a href="#actualités" class="text-gray-600 hover:text-gray-900">Nos actualités</a></li>
+						<li><a href="#menus" class="text-gray-600 hover:text-gray-900">Nos menus</a></li>
+					</ul>
+				</div>
+	
+				<!-- Contact Information -->
+				<div class="text-center lg:text-left col-span-1 lg:col-span-1">
+					<h4 class="text-lg text-gray-900 font-medium mb-7">Prenez contact avec nous.</h4>
+					<ul class="text-sm space-y-6">
+						<li><a href="javascript:;" class="text-gray-600 hover:text-gray-900">fix: (212) 5 22 79 04 50</a></li>
+						<li><a href="javascript:;" class="text-gray-600 hover:text-gray-900">fax: (212) 5 22 94 13 65</a></li>
+						<li><a href="javascript:;" class="text-gray-600 hover:text-gray-900">40, rue almahdia Hay Essalam, 20 160 Casablanca Maroc</a></li>
+					</ul>
+				</div>
+	
+				<!-- Social Media Links -->
+				<div class="text-center lg:text-left col-span-1 lg:col-span-1">
+					<h4 class="text-lg text-gray-900 font-medium mb-7">Nos Réseaux sociaux</h4>
+					<div class="flex justify-center lg:justify-start space-x-4">
+						<a href="https://web.facebook.com/LendysMaroc" class="text-orange-800 hover:text-yellow-300">
+							<i class="fab fa-facebook-f fa-2x"></i>
+						</a>
+						<a href="https://www.instagram.com/lendysmaroc/" class="text-orange-800 hover:text-yellow-300">
+							<i class="fab fa-instagram fa-2x"></i>
+						</a>
+						<a href="https://www.linkedin.com/company/lendy's-maroc/" class="text-orange-800 hover:text-yellow-300">
+							<i class="fab fa-linkedin-in fa-2x"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+	
+			<!-- Footer Bottom -->
+			<div class="py-7 border-t border-gray-200">
+				<div class="flex items-center justify-center lg:justify-between flex-col lg:flex-row">
+					<span class="text-sm text-gray-500">© <a href="https://pagedone.io/">Lendy's</a> 2024, All rights reserved.</span>
+				</div>
+			</div>
+		</div>
+	</footer>
+	
+<!-- Include Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<script>
+	
+	var swiper = new Swiper(".mySwiper", {
+		slidesPerView: 2,
+		spaceBetween: 28,
+		centeredSlides: false,
+		loop: true,
+		pagination: {
+			el: ".swiper-pagination",
+			clickable: true,
+		},
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev",
+		},
+		breakpoints: {
+			0: {
+				slidesPerView: 1,
+				spaceBetween: 20,
+				centeredSlides: false,
+			},
+			568: {
+				slidesPerView: 2,
+				spaceBetween: 28,
+				centeredSlides: false,
+			},
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 28,
+				centeredSlides: false,
+			},
+			1024: {
+				slidesPerView: 2,
+				spaceBetween: 32,
+			},
+		},
+	});
+
+	var swiper = new Swiper(".progress-slide-carousel", {
+		loop: true,
+		fraction: true,
+		autoplay: {
+		  delay: 1200,
+		  disableOnInteraction: false,
+		},
+		pagination: {
+		  el: ".progress-slide-carousel .swiper-pagination",
+		  type: "progressbar",
+		},
+		});
+        document.addEventListener('DOMContentLoaded', () => {
+			// E-shop menu
+			const shopButton = document.getElementById('shop-button');
+			const shopMenu = document.getElementById('shop-menu');
+			
+			shopButton.addEventListener('click', () => {
+				shopMenu.classList.toggle('hidden');
+			});
+		
+			document.addEventListener('click', (event) => {
+				if (!shopButton.contains(event.target) && !shopMenu.contains(event.target)) {
+					shopMenu.classList.add('hidden');
+				}
+			});
+		
+			// Restaurant menu
+			const restaurantButton = document.getElementById('restaurant-button');
+			const restaurantMenu = document.getElementById('restaurant-menu');
+			
+			restaurantButton.addEventListener('click', () => {
+				restaurantMenu.classList.toggle('hidden');
+			});
+		
+			document.addEventListener('click', (event) => {
+				if (!restaurantButton.contains(event.target) && !restaurantMenu.contains(event.target)) {
+					restaurantMenu.classList.add('hidden');
+				}
+			});
+			
+			// Profile menu
+			const profileButton = document.getElementById('profile-button');
+			const profileMenu = document.getElementById('profile-menu');
+			
+			profileButton.addEventListener('click', () => {
+				profileMenu.classList.toggle('hidden');
+			});
+		
+			document.addEventListener('click', (event) => {
+				if (!profileButton.contains(event.target) && !profileMenu.contains(event.target)) {
+					profileMenu.classList.add('hidden');
+				}
+			});
+		});
+		document.addEventListener('DOMContentLoaded', function () {
+			const dropdownToggle = document.querySelectorAll('.dropdown-toggle');
+			dropdownToggle.forEach(button => {
+				button.addEventListener('click', function () {
+					const dropdownMenu = button.nextElementSibling;
+					dropdownMenu.classList.toggle('hidden');
+				});
+			});
+	
+			// Mobile Menu Toggle
+			const mobileMenuButton = document.querySelector('[data-collapse-toggle]');
+			const mobileMenu = document.getElementById('navbar-default-with-dropdown');
+			mobileMenuButton.addEventListener('click', function () {
+				mobileMenu.classList.toggle('hidden');
+			});
+		});
+		document.addEventListener('DOMContentLoaded', function () {
+			// Function to toggle the dropdown menu visibility
+			function toggleDropdown(event) {
+				const targetId = event.target.getAttribute('data-target');
+				if (targetId) {
+					const dropdown = document.getElementById(targetId);
+					dropdown.classList.toggle('hidden');
+					dropdown.classList.toggle('open');
+				}
+			}
+		
+			// Function to close all dropdowns except the one being clicked
+			function closeAllDropdowns(except) {
+				document.querySelectorAll('.dropdown-menu').forEach(menu => {
+					if (menu !== except) {
+						menu.classList.add('hidden');
+						menu.classList.remove('open');
+					}
+				});
+			}
+		
+			// Add event listeners to all dropdown toggle buttons
+			document.querySelectorAll('.dropdown-toggle').forEach(button => {
+				button.addEventListener('click', function (event) {
+					const targetId = event.currentTarget.getAttribute('data-target');
+					const targetDropdown = document.getElementById(targetId);
+		
+					// Close other dropdowns
+					closeAllDropdowns(targetDropdown);
+		
+					// Toggle the clicked dropdown
+					toggleDropdown(event);
+				});
+			});
+		
+			// Close all dropdowns when clicking outside
+			document.addEventListener('click', function (event) {
+				const isClickInside = event.target.closest('.dropdown');
+				if (!isClickInside) {
+					closeAllDropdowns();
+				}
+			});
+		});
+		
+    </script>
+</body>
+</html>

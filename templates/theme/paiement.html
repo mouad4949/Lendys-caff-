@@ -1,0 +1,317 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Lendys Caffé</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% tailwind_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+<body class="bg-orange-100 font-serif leading-normal tracking-normal">
+    <!-- Navbar -->
+    <nav class="bg-orange-900">
+        <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div class="relative flex h-16 items-center justify-between">
+                <!-- Navigation centrale avec barre de recherche -->
+                <div class="flex flex-1 items-center justify-center sm:justify-between">
+                    <!-- Social media icons (left side) -->
+                    <div class="hidden sm:flex space-x-4">
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-facebook-f fa-1x"></i>
+                        </a>
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-twitter fa-1x"></i>
+                        </a>
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-instagram fa-1x"></i>
+                        </a>
+                        <a href="#" class="text-gray-200 hover:text-gray-400">
+                            <i class="fab fa-linkedin-in fa-1x"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Search bar -->
+                    <div class="flex flex-1 items-center mx-4">
+                        <form class="w-full max-w-sm mx-auto">
+                            <div class="relative">
+                                <input type="search" name="search" placeholder="Recherche..." class="w-64 py-2 px-4 rounded-md bg-amber-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-gray-400" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Image section -->
+    <div class="max-h-52 flex items-center justify-center bg-orange-100">
+        <a href="{% url 'len:index' %}">
+        <img src="../../static/images/lendys.png" alt="Description de l'image" class="max-h-44 object-contain" />
+        </a>    
+    </div>
+	
+	<nav class="border-solid border-gray-200 w-full border-b py-3 bg-inherit">
+		<div class="container mx-auto">
+			<div class="w-full flex flex-col lg:flex-row w-full">
+				<div class="flex justify-between lg:flex-row w-full">
+					<ul class="flex items-center mx-auto gap-2 ">
+						<li>
+							<div class="dropdown relative inline-flex">
+								<button type="button" data-target="dropdown-eshop" class="dropdown-toggle flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium hover:text-gray-400 transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3 px-12">
+									E-shop
+									<svg class="dropdown-open:rotate-180 w-2.5 h-2.5 text-orange-800" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+									</svg>
+								</button>
+								<div id="dropdown-eshop" class="dropdown-menu rounded-xl shadow-lg bg-white absolute top-full w-72 mt-2 hidden z-50" aria-labelledby="dropdown-eshop">
+									<ul class="py-2">
+										<li><a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:conf' %}">Confiserie</a></li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:gat' %}"> Gateaux </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:gat_trad' %}"> Gateaux Traditionnels </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:glace' %}"> Desserts glacés </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:snack' %}"> Snack </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:venoiserie' %}"> Venoiserie </a>
+                                    </li>
+                                    <li>
+                                        <a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="{% url 'len:Salés' %}"> Salés </a>
+                                    </li>
+                                    
+                                    </li>
+                                    
+                                    </ul>
+                                    </div>
+                                    </div> 
+                            </li>
+                            <li>
+                            <a href="javascript:;" class="px-12 flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium   transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">Nos Brochures</a>
+                            </li>
+                            <li>
+                            <a href="javascript:;" class="px-12 flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium   transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">La Maison</a>
+                            </li>
+							{% if user.is_authenticated %}
+							<li>
+								<div class="dropdown relative inline-flex">
+									<button type="button" data-target="dropdown-profile" class="dropdown-toggle flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium hover:text-gray-400 transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">
+										<i class="fa-solid fa-user-tie"></i>{{user.Nom}}  {{user.prenom}}
+										<svg class="dropdown-open:rotate-180 w-2.5 h-2.5 text-orange-800" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M2 5L8.16086 10.6869C8.35239 10.8637 8.64761 10.8637 8.83914 10.6869L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+										</svg>
+									</button>
+									<div id="dropdown-profile" class="dropdown-menu rounded-xl shadow-lg bg-white absolute top-full w-72 mt-2 hidden z-50" aria-labelledby="dropdown-profile">
+										<ul class="py-2">
+											<li><a class="block px-6 py-2 hover:bg-gray-100 text-gray-900 font-medium" href="javascript:;">Profile</a></li>
+											<li><a href="{% url 'len:logout'%}" class="block px-6 py-2 hover:bg-gray-100 text-red-500 font-medium" href="javascript:;">Log Out</a></li>
+										</ul>
+									</div>
+								</div>
+							</li>
+							{% else %}
+							<li>
+								<a href="{% url 'len:login' %}" class="px-12 flex items-center justify-between text-orange-800 text-sm lg:text-base font-medium   transition-all duration-500 mb-2 lg:mr-6 md:mb-0 md:mr-3">Se connecter</a>
+								</li>
+							{% endif %}
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+                </nav>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full table-auto border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-200">
+                                <th class="px-4 py-2 text-left border">Nom</th>
+                                <th class="px-4 py-2 text-left border">Prix (dh)</th>
+                                <th class="px-4 py-2 text-left border">Quantité</th>
+                                <th class="px-4 py-2 text-left border">Image</th>
+                            </tr>
+                        </thead>
+                        <tbody id="commande-list">
+                            {% if commande %}
+                            <tr data-id="{{ commande.id }}" class="hover:bg-gray-100" >
+                                <td class="border px-4 py-2">{{ commande.produit.Nom }}</td>
+                                <td class="border px-4 py-2">{{ commande.prix }} Dh</td>
+                                <td class="border px-4 py-2">{{ commande.Quantité }} </td>
+                                <td class="border px-4 py-2">
+                                    {% if commande.produit.image %}
+                                    <img src="{{ commande.produit.image.url }}" class="h-16 w-32">
+                                    {% else %}
+                                    pas d'image
+                                    {% endif %}
+                                </td>
+                                
+
+                            </tr>
+                            {% else %}
+                            <h2 class="py-7 mx-auto max-w-2xl sm:text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Vous n'avez aucune commande à payer</h2>
+                            {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+            <div class ="px-64 mt-40 mb-10"id="paypal-button-container"></div>
+
+            <script src="https://www.paypal.com/sdk/js?client-id=AVUqcI7gGXLJv2zX-u_pVpkQgwlY6NVBDT4-_nM0TV_U-Xv6uF-e405uEfe4fWkZMuFC9FFcykm5uQAl&currency=USD"></script>
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            // Function to toggle the dropdown menu visibility
+            function toggleDropdown(event) {
+                const targetId = event.target.getAttribute('data-target');
+                if (targetId) {
+                    const dropdown = document.getElementById(targetId);
+                    dropdown.classList.toggle('hidden');
+                    dropdown.classList.toggle('open');
+                }
+            }
+        
+            // Function to close all dropdowns except the one being clicked
+            function closeAllDropdowns(except) {
+                document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                    if (menu !== except) {
+                        menu.classList.add('hidden');
+                        menu.classList.remove('open');
+                    }
+                });
+            }
+        
+            // Add event listeners to all dropdown toggle buttons
+            document.querySelectorAll('.dropdown-toggle').forEach(button => {
+                button.addEventListener('click', function (event) {
+                    const targetId = event.currentTarget.getAttribute('data-target');
+                    const targetDropdown = document.getElementById(targetId);
+        
+                    // Close other dropdowns
+                    closeAllDropdowns(targetDropdown);
+        
+                    // Toggle the clicked dropdown
+                    toggleDropdown(event);
+                });
+            });
+        
+            // Close all dropdowns when clicking outside
+            document.addEventListener('click', function (event) {
+                const isClickInside = event.target.closest('.dropdown');
+                if (!isClickInside) {
+                    closeAllDropdowns();
+                }
+            });
+        });
+        async function getExchangeRate() {
+            try {
+                const response = await fetch('https://v6.exchangerate-api.com/v6/f13a6d9aa3b3eb6257adde35/latest/MAD');
+                const data = await response.json();
+                return data.conversion_rates.USD;
+            } catch (error) {
+                console.error('Erreur lors de la récupération du taux de change:', error);
+                return null;
+            }
+        }
+    
+        async function initPayPalButton() {
+            const rate = await getExchangeRate();
+            if (!rate) {
+                alert('Erreur lors de la récupération du taux de change. Veuillez réessayer plus tard.');
+                return;
+            }
+        
+            paypal.Buttons({
+                createOrder: function (data, actions) {
+                    var priceMAD = '{{ commande.prix }}'.replace(',', '.');
+                    var priceUSD = (priceMAD * rate).toFixed(2);
+        
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                currency_code: 'USD',
+                                value: priceUSD
+                            }
+                        }]
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        // Créez un formulaire et le soumettre
+                        var form = document.createElement('form');
+                        form.method = 'POST';
+                        form.action = "{% url 'len:paiement_success' commande.id %}";
+        
+                        var inputOrderID = document.createElement('input');
+                        inputOrderID.type = 'hidden';
+                        inputOrderID.name = 'orderID';
+                        inputOrderID.value = data.orderID;
+                        form.appendChild(inputOrderID);
+        
+                        var inputPayerID = document.createElement('input');
+                        inputPayerID.type = 'hidden';
+                        inputPayerID.name = 'payerID';
+                        inputPayerID.value = data.payerID;
+                        form.appendChild(inputPayerID);
+        
+                        var inputTransactionDetails = document.createElement('input');
+                        inputTransactionDetails.type = 'hidden';
+                        inputTransactionDetails.name = 'transactionDetails';
+                        inputTransactionDetails.value = JSON.stringify(details);
+                        form.appendChild(inputTransactionDetails);
+        
+                        var csrfToken = document.createElement('input');
+                        csrfToken.type = 'hidden';
+                        csrfToken.name = 'csrfmiddlewaretoken';
+                        csrfToken.value = '{{ csrf_token }}';
+                        form.appendChild(csrfToken);
+        
+                        document.body.appendChild(form);
+                        form.submit();
+                    });
+                }
+            }).render('#paypal-button-container');
+        }
+        
+        
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            initPayPalButton();
+        });
+    
+            // Fonction pour gérer le paiement du pack
+            async function handlePayPack(priceMAD) {
+                const rate = await getExchangeRate();
+                if (!rate) {
+                    alert('Erreur lors de la récupération du taux de change. Veuillez réessayer plus tard.');
+                    return;
+                }
+                var priceUSD = (priceMAD * rate).toFixed(2);
+                paypal.Buttons({
+                    createOrder: function (data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    currency_code: 'USD',
+                                    value: priceUSD
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function (data, actions) {
+                        return actions.order.capture().then(function (details) {
+                            alert('Transaction completed by ' + details.payer.name.given_name);
+                            window.location.href = "{% url 'len:paiement_success' commande.id %}";
+                        });
+                    }
+                }).render('#paypal-button-container');
+            }
+        </script>
+    </body>
+</html>
